@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 using PhoneBookWebApi.Models;
 
 namespace PhoneBookWebApi
@@ -26,7 +27,15 @@ namespace PhoneBookWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(option =>
+            {
+                var contractResolver = option.SerializerSettings.ContractResolver;
+                if (contractResolver != null)
+                {
+                    (contractResolver as DefaultContractResolver).NamingStrategy = null;
+                }
+            });
+            
             services.AddDbContext<PhoneBookContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WebApiConnection")));
         }
