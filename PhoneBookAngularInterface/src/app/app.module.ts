@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PhoneBookContactsComponent } from './phone-book-contacts/phone-book-contacts.component';
-import { PhoneBookContactComponent } from './PhoneBook-Contacts/phone-book-contact/phone-book-contact.component';
 import { PhoneBookContactListComponent } from './phone-book-contacts/phone-book-contact-list/phone-book-contact-list.component';
+import { PhoneBookContactComponent } from './phone-book-contacts/phone-book-contact/phone-book-contact.component';
+import {PhoneBookContactService} from './shared/phone-book-contact.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhoneBookContactsComponent,
-    PhoneBookContactComponent,
-    PhoneBookContactListComponent
+    PhoneBookContactListComponent,
+    PhoneBookContactComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [PhoneBookContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

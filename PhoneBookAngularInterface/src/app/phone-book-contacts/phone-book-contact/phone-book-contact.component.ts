@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhoneBookContactService } from 'src/app/shared/phone-book-contact.service';
 
 @Component({
   selector: 'app-phone-book-contact',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneBookContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: PhoneBookContactService ) { }
 
   ngOnInit(): void {
   }
