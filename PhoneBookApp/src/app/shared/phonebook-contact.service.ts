@@ -8,10 +8,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class PhonebookContactService {
   formData: PhonebookContact = new PhonebookContact();
   readonly rootURL = 'http://localhost:5000/api';
+  list: PhonebookContact[];
 
   constructor(private http: HttpClient) { }
 
   postPhoneBookContact(formData: PhonebookContact){
     return this.http.post(this.rootURL + '/PhoneBookContact', formData);
+  }
+  refreshList(){
+    this.http.get(this.rootURL + '/PhoneBookContact').toPromise()
+    .then( res => this.list = res as PhonebookContact[]);
   }
 }

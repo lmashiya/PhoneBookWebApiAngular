@@ -50,7 +50,7 @@ namespace PhoneBookWebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(Options => Options.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
 
             app.UseMvc();
         }

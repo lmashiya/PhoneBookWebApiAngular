@@ -11,3 +11,11 @@ input.ng-invalid.ng-touched{
 .red-icon{
     color: red;
 }
+
+#toast-container{
+    opacity: 1;
+}
+
+table-tr:hover{
+cursor: pointer;
+}

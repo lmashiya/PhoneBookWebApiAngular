@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhonebookContactService } from 'src/app/shared/phonebook-contact.service';
 
 @Component({
   selector: 'app-phonebook-contact-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhonebookContactListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: PhonebookContactService) { }
 
   ngOnInit() {
+    this.service.refreshList();
   }
 
 }
