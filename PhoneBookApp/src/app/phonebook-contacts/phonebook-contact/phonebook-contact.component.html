@@ -33,7 +33,7 @@
       <div class="input-group">
           <div class="input-group-prepend">
               <div class="input-group-text bg-white">
-                  <i class="fas fa-user-circle" [class.green-icon]="EmailAddress.valid" [class.red-icon]="EmailAddress.invalid && EmailAddress.touched"></i>
+                  <i  class="fas fa-at" [class.green-icon]="EmailAddress.valid" [class.red-icon]="EmailAddress.invalid && EmailAddress.touched"></i>
               </div>
           </div>
           <input type="email" name = "EmailAddress" #EmailAddress="ngModel" [(ngModel)]="service.formData.EmailAddress" class="form-control" placeholder="Contact EmailAddress" autocomplete="no">

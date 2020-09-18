@@ -7,6 +7,7 @@ import { PhonebookContactsComponent } from './phonebook-contacts/phonebook-conta
 import { PhonebookContactComponent } from './phonebook-contacts/phonebook-contact/phonebook-contact.component';
 import { PhonebookContactListComponent } from './phonebook-contacts/phonebook-contact-list/phonebook-contact-list.component';
 import { PhonebookContactService } from './shared/phonebook-contact.service';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PhonebookContactService } from './shared/phonebook-contact.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClient
   ],
   providers: [PhonebookContactService],
   bootstrap: [AppComponent]
