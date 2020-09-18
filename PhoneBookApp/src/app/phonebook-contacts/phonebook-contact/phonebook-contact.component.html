@@ -1,4 +1,4 @@
-<form #form = "ngForm" autocomplete="off">
+<form #form = "ngForm" (submit)="onSubmit(form)">
   <div class="form-group">
       <div class="input-group">
           <div class="input-group-prepend">
@@ -6,7 +6,7 @@
                   <i class="fas fa-user-circle" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
               </div>
           </div>
-          <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" placeholder="Contact FirstName" required >
+          <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" placeholder="Contact FirstName" required autocomplete="">
       </div>
   </div>
   <div class="form-group">
@@ -16,7 +16,7 @@
                   <i class="fas fa-user-circle" [class.green-icon]="LastName.valid" [class.red-icon]="LastName.invalid && LastName.touched"></i>
               </div>
           </div>
-          <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" placeholder="Contact LastName" >
+          <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" placeholder="Contact LastName" autocomplete="nope">
       </div>
   </div>
   <div class="form-group">
