@@ -16,8 +16,15 @@ export class PhonebookContactComponent implements OnInit {
     this.resetForm();
   }
 
-  onSubmit(form?:NgForm){
-    
+  onSubmit(form?: NgForm) {
+    this.service.postPhoneBookContact(form.value).subscribe(
+      res => {
+        this.resetForm(form);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   resetForm(form?:NgForm){
@@ -30,7 +37,7 @@ export class PhonebookContactComponent implements OnInit {
       PhoneNumber: '',
       LastName: '',
       EmailAddress: ''
-  }
+  };
   }
 
 }
