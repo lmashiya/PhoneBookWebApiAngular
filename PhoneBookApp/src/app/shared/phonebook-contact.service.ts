@@ -5,6 +5,7 @@ import { PhonebookContact } from './phonebook-contact.model';
   providedIn: 'root'
 })
 export class PhonebookContactService {
-  formData: PhonebookContact;
+  formData: PhonebookContact = new PhonebookContact();
+
   constructor() { }
 }

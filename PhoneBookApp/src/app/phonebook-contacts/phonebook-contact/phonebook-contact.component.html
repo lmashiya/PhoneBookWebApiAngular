@@ -1,1 +1,45 @@
-
+<form #form = "ngForm" autocomplete="off">
+  <div class="form-group">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fas fa-user-circle" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
+              </div>
+          </div>
+          <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" placeholder="Contact FirstName" required >
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fas fa-user-circle" [class.green-icon]="LastName.valid" [class.red-icon]="LastName.invalid && LastName.touched"></i>
+              </div>
+          </div>
+          <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" placeholder="Contact LastName" >
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fas fa-phone-alt" [class.green-icon]="PhoneNumber.valid" [class.red-icon]="PhoneNumber.invalid && PhoneNumber.touched"></i>
+              </div>
+          </div>
+          <input name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control" placeholder="Contact PhoneNumber" required maxlength="10" minlength="10" autocomplete="foo">
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fas fa-user-circle" [class.green-icon]="EmailAddress.valid" [class.red-icon]="EmailAddress.invalid && EmailAddress.touched"></i>
+              </div>
+          </div>
+          <input type="email" name = "EmailAddress" #EmailAddress="ngModel" [(ngModel)]="service.formData.EmailAddress" class="form-control" placeholder="Contact EmailAddress" autocomplete="no">
+      </div>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled] = "form.invalid"><i class="fas fa-save"></i>Submit</button>
+  </div>
+</form>
