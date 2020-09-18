@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonebookContactService } from 'src/app/shared/phonebook-contact.service';
+import { PhonebookContact } from 'src/app/shared/phonebook-contact.model';
 
 @Component({
   selector: 'app-phonebook-contact-list',
@@ -14,4 +15,7 @@ export class PhonebookContactListComponent implements OnInit {
     this.service.refreshList();
   }
 
+  populateForm(pd: PhonebookContact){
+    this.service.formData = Object.assign({}, pd);
+  }
 }
