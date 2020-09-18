@@ -1,1 +1,12 @@
-<p>phone-book-contact works!</p>
+<form #form="ngForm" autocomplete=off >
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <input name = "FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" placeholder="Contact FirstName">
+        </div>
+    </div>
+</form>

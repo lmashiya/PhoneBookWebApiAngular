@@ -9,7 +9,7 @@ import { PhoneBookContactService } from 'src/app/shared/phone-book-contact.servi
 })
 export class PhoneBookContactComponent implements OnInit {
 
-  constructor(private service: PhoneBookContactService ) { }
+  constructor(public service: PhoneBookContactService ) { }
 
   ngOnInit(): void {
   }

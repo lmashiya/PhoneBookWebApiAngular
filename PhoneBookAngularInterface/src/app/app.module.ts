@@ -6,6 +6,7 @@ import { PhoneBookContactsComponent } from './phone-book-contacts/phone-book-con
 import { PhoneBookContactListComponent } from './phone-book-contacts/phone-book-contact-list/phone-book-contact-list.component';
 import { PhoneBookContactComponent } from './phone-book-contacts/phone-book-contact/phone-book-contact.component';
 import {PhoneBookContactService} from './shared/phone-book-contact.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import {PhoneBookContactService} from './shared/phone-book-contact.service';
     PhoneBookContactComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    
   ],
   providers: [PhoneBookContactService],
   bootstrap: [AppComponent]
