@@ -24,7 +24,7 @@ export class PhonebookContactService {
     return this.http.put(this.rootURL + '/PhoneBookContact/' + this.formData.ContactID, this.formData);
   }
 
-  deletePhoneBookContact() {
-    return this.http.put(this.rootURL + '/PhoneBookContact/' + this.formData.ContactID, this.formData);
+  deletePhoneBookContact(id) {
+    return this.http.delete(this.rootURL + '/PhoneBookContact/' + id);
   }
 }
