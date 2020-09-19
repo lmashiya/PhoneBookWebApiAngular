@@ -6,17 +6,25 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PhonebookContactService {
-  formData: PhonebookContact = new PhonebookContact();
+  formData: PhonebookContact;
   readonly rootURL = 'http://localhost:5000/api';
   list: PhonebookContact[];
 
   constructor(private http: HttpClient) { }
 
-  postPhoneBookContact(formData: PhonebookContact){
-    return this.http.post(this.rootURL + '/PhoneBookContact', formData);
+  postPhoneBookContact() {
+    return this.http.post(this.rootURL + '/PhoneBookContact', this.formData);
   }
-  refreshList(){
+  refreshList() {
     this.http.get(this.rootURL + '/PhoneBookContact').toPromise()
     .then( res => this.list = res as PhonebookContact[]);
+  }
+
+  updatePhoneBookContact() {
+    return this.http.put(this.rootURL + '/PhoneBookContact/' + this.formData.ContactID, this.formData);
+  }
+
+  deletePhoneBookContact() {
+    return this.http.put(this.rootURL + '/PhoneBookContact/' + this.formData.ContactID, this.formData);
   }
 }

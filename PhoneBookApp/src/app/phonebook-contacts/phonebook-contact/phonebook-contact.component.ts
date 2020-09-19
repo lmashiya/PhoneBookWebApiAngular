@@ -18,15 +18,37 @@ export class PhonebookContactComponent implements OnInit {
   }
 
   onSubmit(form?: NgForm) {
-    this.service.postPhoneBookContact(form.value).subscribe(
+    if (this.service.formData.ContactID == 0) {
+        this.insertContact(form);
+    } else {
+      this.updateContact(form);
+    }
+  }
+
+  insertContact(form?: NgForm){
+    this.service.postPhoneBookContact().subscribe(
       res => {
         this.resetForm(form);
-        this.toaster.success('Submitted Successfully' , 'PhoneBook');
+        this.toaster.success('Contact Created Successfully' , 'PhoneBook');
+        this.service.refreshList();
       },
       err => {
         console.log(err);
       }
     );
+  }
+
+    updateContact(form ?: NgForm){
+      this.service.updatePhoneBookContact().subscribe(
+        res => {
+          this.resetForm(form);
+          this.toaster.info('Contact Updated Successfully' , 'PhoneBook');
+          this.service.refreshList();
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
   resetForm(form?: NgForm) {
@@ -43,3 +65,4 @@ export class PhonebookContactComponent implements OnInit {
   }
 
 }
+

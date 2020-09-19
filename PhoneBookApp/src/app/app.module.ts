@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
@@ -8,8 +10,8 @@ import { PhonebookContactComponent } from './phonebook-contacts/phonebook-contac
 import { PhonebookContactListComponent } from './phonebook-contacts/phonebook-contact-list/phonebook-contact-list.component';
 import { PhonebookContactService } from './shared/phonebook-contact.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 @NgModule({
@@ -21,9 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [PhonebookContactService],
