@@ -6,13 +6,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using PhoneBookWebApi.Data.Interfaces;
 
+//using PhoneBookWebApi.Data.Interfaces;
+
 namespace PhoneBookWebApi.Models 
 {
     public class PhoneBookContact : IEntity
     {
-        [Key] 
-        public int ContactID { get; set; }
-        
         [Required] 
         [Column(TypeName = "varchar(50)")]
         public string FirstName { get; set; }
@@ -26,7 +25,7 @@ namespace PhoneBookWebApi.Models
         
         [Column(TypeName = "varchar(50)")]
         public string EmailAddress { get; set; }
-
-        public int Id { get; set; }
+        [Key]
+        public int ContactID { get; set; }
     }
 }
