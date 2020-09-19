@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace PhoneBookWebApiTests
 {
-    public class Tests
+    public class PhoneBookControllerTests
     {
         [SetUp]
         public void Setup()
