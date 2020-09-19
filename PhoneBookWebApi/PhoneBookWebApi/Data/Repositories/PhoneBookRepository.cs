@@ -1,55 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using PhoneBookWebApi.Data.Interfaces;
-
-namespace PhoneBookWebApi.Models.Repositories
+﻿namespace PhoneBookWebApi.Models.Repositories
 {
-    public abstract class PhoneBookRepository<TEntity, TContext> : IPhoneBookRepository<TEntity>
-        where TEntity : class, IEntity
-        where TContext : DbContext
+    public class PhoneBookRepository : CoreRepository<PhoneBookContact, PhoneBookContext>
     {
-        private readonly TContext context;
-        public PhoneBookRepository(TContext context)
+        public PhoneBookRepository(PhoneBookContext context) : base(context)
         {
-            this.context = context;
-        }
-        public async Task<TEntity> Add(TEntity entity)
-        {
-            context.Set<TEntity>().Add(entity);
-            await context.SaveChangesAsync();
-            return entity;
+
         }
 
-        public async Task<TEntity> Delete(int id)
-        {
-            var entity = await context.Set<TEntity>().FindAsync(id);
-            if (entity == null)
-            {
-                return entity;
-            }
-
-            context.Set<TEntity>().Remove(entity);
-            await context.SaveChangesAsync();
-
-            return entity;
-        }
-
-        public async Task<TEntity> Get(int id)
-        {
-            return await context.Set<TEntity>().FindAsync(id);
-        }
-
-        public async Task<List<TEntity>> GetAll()
-        {
-            return await context.Set<TEntity>().ToListAsync();
-        }
-
-        public async Task<TEntity> Update(TEntity entity)
-        {
-            context.Entry(entity).State = EntityState.Modified;
-            await context.SaveChangesAsync();
-            return entity;
-        }
     }
 }
