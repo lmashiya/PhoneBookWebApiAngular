@@ -43,7 +43,7 @@ namespace PhoneBookWebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, TEntity contact)
         {
-            if (id != contact.ContactId)
+            if (id != contact.ContactID)
             {
                 return BadRequest();
             }
@@ -56,7 +56,7 @@ namespace PhoneBookWebApi.Controllers
         public async Task<ActionResult<TEntity>> Post(TEntity contact)
         {
             await repository.Add(contact);
-            return CreatedAtAction("", new { id = contact.ContactId }, contact);
+            return CreatedAtAction("Get", new { id = contact.ContactID }, contact);
         }
 
         // DELETE: api/[controller]/5

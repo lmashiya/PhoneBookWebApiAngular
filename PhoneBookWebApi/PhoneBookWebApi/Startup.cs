@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using PhoneBookWebApi.Models;
+using PhoneBookWebApi.Models.Repositories;
 
 namespace PhoneBookWebApi
 {
@@ -63,6 +64,7 @@ namespace PhoneBookWebApi
                     }
                 });
             });
+            services.AddScoped<PhoneBookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
