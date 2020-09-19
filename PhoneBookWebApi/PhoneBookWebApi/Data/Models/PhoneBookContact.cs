@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using PhoneBookWebApi.Data.Interfaces;
 
-namespace PhoneBookWebApi.Models
+namespace PhoneBookWebApi.Models 
 {
-    public class PhoneBookContact
+    public class PhoneBookContact : IEntity
     {
         [Key] 
         public int ContactID { get; set; }
@@ -26,5 +27,6 @@ namespace PhoneBookWebApi.Models
         [Column(TypeName = "varchar(50)")]
         public string EmailAddress { get; set; }
 
+        public int Id { get; set; }
     }
 }
