@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PhoneBookWebApi.Data.Interfaces;
 using PhoneBookWebApi.Models;
 using PhoneBookWebApi.Models.Repositories;
 
@@ -12,12 +13,16 @@ namespace PhoneBookWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PhoneBookContactController : CoreController<PhoneBookContact, PhoneBookRepository>
+    public class PhoneBookContactController : CoreController<PhoneBookContact, IPhoneBookRepository<PhoneBookContact>>
     {
-        public PhoneBookContactController(PhoneBookRepository repo) : base(repo)
+        private IPhoneBookRepository<PhoneBookContact> repo;
+
+        public PhoneBookContactController(IPhoneBookRepository<PhoneBookContact> repo) : base(repo)
         {
 
         }
+
+       
 
         //// GET: api/PhoneBookContact
         //[HttpGet]

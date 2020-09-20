@@ -10,7 +10,11 @@ using PhoneBookWebApi.Data.Interfaces;
 
 namespace PhoneBookWebApi.Models 
 {
-    public class PhoneBookContact : IEntity
+    public interface IPhoneBookContact
+    {
+    }
+
+    public class PhoneBookContact : IEntity, IPhoneBookContact
     {
         [Required] 
         [Column(TypeName = "varchar(50)")]

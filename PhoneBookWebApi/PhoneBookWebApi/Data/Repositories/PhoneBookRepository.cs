@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PhoneBookWebApi.Data.Interfaces;
+using System;
 
 namespace PhoneBookWebApi.Models.Repositories
 {
     public class PhoneBookRepository : CoreRepository<PhoneBookContact, PhoneBookContext>
     {
-        public PhoneBookRepository(PhoneBookContext context) : base(context)
+        private DbContext @object;
+
+        public PhoneBookRepository(PhoneBookContext repoContext) : base(repoContext)
         {
             
         }

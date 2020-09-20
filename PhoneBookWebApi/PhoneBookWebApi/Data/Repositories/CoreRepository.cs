@@ -9,11 +9,13 @@ namespace PhoneBookWebApi.Models.Repositories
         where TEntity : class, IEntity
         where TContext : DbContext
     {
-        private readonly TContext context;
+        public readonly TContext context;
+
         public CoreRepository(TContext context)
         {
             this.context = context;
         }
+
         public async Task<TEntity> Add(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
